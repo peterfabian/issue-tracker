@@ -5,7 +5,7 @@ import json
 import os
 
 from flask import Flask, flash, g, jsonify, redirect, render_template, request, session, url_for
-from flask.ext.github import GitHub
+from flask import GitHub
 import requests
 
 import db
