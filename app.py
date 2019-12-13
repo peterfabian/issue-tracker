@@ -11,8 +11,8 @@ import requests
 import db
 import tracker
 
-OWNER = 'danvk'
-REPO = 'dygraphs'
+OWNER = 'woocommerce'
+REPO = 'woocommerce'
 
 app = Flask(__name__)
 
