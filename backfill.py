@@ -90,7 +90,7 @@ def get_stargazers(repo):
 
 def fetch_full_issue(issue):
     """Fills out the events field for an Issue or Pull Request."""
-    print 'Fetching issue %d...' % issue.number
+    print('Fetching issue %d...' % issue.number)
     issue_json = issue.raw_data
     issue_json['events'] = [event.raw_data for event in issue.get_events()]
     for event in issue_json['events']:
@@ -209,10 +209,10 @@ def issue_events(issue, track_labels=True):
     if track_labels:
         github_labels = {label['name'] for label in issue['labels']}
         if labels != github_labels:
-            print 'Label mismatch for issue %d' % issue['number']
-            print '  Computed %s' % labels
-            print '  GitHub says %s' % github_labels
-            print 'You may need to fill out the LABEL_RENAMES variable\n'
+            print('Label mismatch for issue %d' % issue['number'])
+            print('  Computed %s' % labels)
+            print('  GitHub says %s' % github_labels)
+            print('You may need to fill out the LABEL_RENAMES variable\n')
     return events
 
 
@@ -328,7 +328,7 @@ if __name__ == '__main__':
 
     if arguments['--labels-map']:
         LABEL_RENAMES = json.load(open(arguments['--labels-map']))
-        print 'Using label mapping:\n%s\n' % json.dumps(LABEL_RENAMES, indent=2)
+        print('Using label mapping:\n%s\n' % json.dumps(LABEL_RENAMES, indent=2))
 
     host = arguments['--host']
 
@@ -388,13 +388,13 @@ if __name__ == '__main__':
         ])
 
     url = 'http://%s/%s/%s/backfill' % (host, owner, repo_name)
-    print 'Successfully generated backfill data.'
-    print 'POSTing to %s...' % url
+    print('Successfully generated backfill data.')
+    print('POSTing to %s...' % url)
 
     for i, obj in enumerate(objs):
-        print 'Issuing request %d... ' % i,
+        print('Issuing request %d... ' % i)
         r = requests.post(url, json=obj)
-        print r.text
+        print(r.text)
         r.raise_for_status()
 
-    print 'Success! Now visit http://%s/%s/%s' % (host, owner, repo_name)
+    print('Success! Now visit http://%s/%s/%s' % (host, owner, repo_name))

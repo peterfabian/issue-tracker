@@ -46,8 +46,8 @@ def fetch_stats_from_github(owner, repo_name):
             label_to_count[label] += 1
 
     end_secs = time.time()
-    print 'Fetched %d GitHub issues from %s/%s in %f secs' % (
-            open_issues, owner, repo_name, end_secs - start_secs)
+    print('Fetched %d GitHub issues from %s/%s in %f secs' % (
+            open_issues, owner, repo_name, end_secs - start_secs))
 
     return RepoStats(stargazers=stargazers,
                      open_issues=open_issues,
@@ -67,4 +67,4 @@ def can_user_push_to_repo(token, owner, repo_name):
 
 
 if __name__ == '__main__':
-    print fetch_stats_from_github(OWNER, REPO)
+    print(fetch_stats_from_github(OWNER, REPO))

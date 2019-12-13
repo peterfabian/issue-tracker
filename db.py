@@ -184,7 +184,7 @@ def store_backfill(owner, repo, backfill_data):
                 'count': int(row[1])
             } for row in data])
         stop_secs = time.time()
-        print 'Inserted %d rows in %f secs' % (len(data), stop_secs - start_secs)
+        print('Inserted %d rows in %f secs' % (len(data), stop_secs - start_secs))
 
     if 'delete' in backfill_data:
         t = backfill_data['delete']
